@@ -1,0 +1,14 @@
+[package]
+name = "retrio"
+version = "0.1.0"
+authors = ["Stephane Raux <stephaneyfx@gmail.com>"]
+description = """Wrapper around readers and writers to retry on errors of kind \
+    Interrupted."""
+license = "MIT"
+homepage = "https://github.com/stephaneyfx/retrio"
+repository = "https://github.com/stephaneyfx/retrio.git"
+documentation = "https://docs.rs/retrio"
+keywords = ["interrupted", "io", "retry"]
+
+[dev-dependencies]
+partial-io = "0.3.0"
