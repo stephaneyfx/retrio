@@ -1,16 +1,16 @@
 // Copyright (C) 2018 Stephane Raux. Distributed under the MIT license.
 
-#![deny(missing_docs)]
-#![deny(warnings)]
-
 //! This crate defines a wrapper around readers (buffered or not) and writers
 //! to retry on IO errors of kind `Interrupted`.
+
+#![deny(missing_docs)]
+#![deny(warnings)]
 
 #[cfg(test)]
 extern crate partial_io;
 
 use std::fmt;
-use std::io::{BufRead, ErrorKind, Read, self, Write};
+use std::io::{BufRead, ErrorKind, Read, Seek, self, Write};
 
 /// Wrapper around readers, buffered readers and writers to automatically retry
 /// on IO errors of kind `Interrupted`.
@@ -101,6 +101,12 @@ impl<T: Write> Write for Retry<T> {
 
     fn write_fmt(&mut self, args: fmt::Arguments) -> io::Result<()> {
         self.inner.write_fmt(args)
+    }
+}
+
+impl<T: Seek> Seek for Retry<T> {
+    fn seek(&mut self, pos: io::SeekFrom) -> io::Result<u64> {
+        self.inner.seek(pos)
     }
 }
 
