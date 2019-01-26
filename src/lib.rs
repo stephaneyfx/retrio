@@ -6,9 +6,6 @@
 #![deny(missing_docs)]
 #![deny(warnings)]
 
-#[cfg(test)]
-extern crate partial_io;
-
 use std::fmt;
 use std::io::{BufRead, ErrorKind, Read, Seek, self, Write};
 
@@ -113,8 +110,8 @@ impl<T: Seek> Seek for Retry<T> {
 #[cfg(test)]
 mod tests {
     use partial_io::{PartialOp, PartialRead, PartialWrite};
-    use std::io::BufReader;
-    use super::*;
+    use std::io::{BufRead, BufReader, ErrorKind, Read, Write};
+    use super::Retry;
 
     #[test]
     fn reads() {

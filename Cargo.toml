@@ -2,6 +2,7 @@
 name = "retrio"
 version = "0.1.1"
 authors = ["Stephane Raux <stephaneyfx@gmail.com>"]
+edition = "2018"
 description = """Wrapper around readers and writers to retry on errors of kind \
     Interrupted."""
 license = "MIT"
