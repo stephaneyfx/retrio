@@ -1,6 +1,6 @@
 [package]
 name = "retrio"
-version = "0.1.1"
+version = "0.2.0"
 authors = ["Stephane Raux <stephaneyfx@gmail.com>"]
 edition = "2018"
 description = """Wrapper around readers and writers to retry on errors of kind \
