@@ -9,8 +9,8 @@
 use std::fmt;
 use std::io::{BufRead, ErrorKind, Read, Seek, self, Write};
 
-/// Wrapper around readers, buffered readers and writers to automatically retry
-/// on IO errors of kind `Interrupted`.
+/// Wrapper for readers, buffered readers and writers to automatically retry
+/// as long as an IO error of kind `Interrupted` occurs.
 ///
 /// All methods are forwarded to the wrapped type.
 #[derive(Clone, Debug)]
